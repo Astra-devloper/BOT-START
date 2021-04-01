@@ -5,7 +5,7 @@ const prefix = require("../../config.json").prefix;
 module.exports = {
   name: "help",
   aliases : ['h','Help','H'],
-  description: "Shows all available bot commands.",
+  description: "Help commands.",
   run: async (client, message, args) => {
 
   
