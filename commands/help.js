@@ -4,16 +4,11 @@ const prefix = require("../../config.json").prefix;
 
 module.exports = {
   name: "help",
-  aliases : ['h'],
+  aliases : ['h','Help','H'],
   description: "Shows all available bot commands.",
   run: async (client, message, args) => {
 
-
-    const roleColor =
-      message.guild.me.displayHexColor === "#000000"
-        ? "#ffffff"
-        : message.guild.me.displayHexColor;
-
+  
     if (!args[0]) {
       let categories = [];
 
@@ -43,7 +38,7 @@ module.exports = {
       });
 
       const embed = new MessageEmbed()
-        .setTitle("📬 Need help? Here are all of my commands:")
+        .setTitle("HELP COMMAND")
         .addFields(categories)
         .setDescription(
           `Use \`${prefix}help\` followed by a command name to get more additional information on a command. For example: \`${prefix}help ban\`.`
@@ -53,7 +48,7 @@ module.exports = {
           message.author.displayAvatarURL({ dynamic: true })
         )
         .setTimestamp()
-        .setColor(roleColor);
+        .setColor("GOLD");
       return message.channel.send(embed);
     } else {
       const command =
@@ -65,7 +60,7 @@ module.exports = {
       if (!command) {
         const embed = new MessageEmbed()
           .setTitle(`Invalid command! Use \`${prefix}help\` for all of my commands!`)
-          .setColor("FF0000");
+          .setColor("RED");
         return message.channel.send(embed);
       }
 
@@ -99,7 +94,7 @@ module.exports = {
           message.author.displayAvatarURL({ dynamic: true })
         )
         .setTimestamp()
-        .setColor(roleColor);
+        .setColor("BLUE");
       return message.channel.send(embed);
     }
   },
